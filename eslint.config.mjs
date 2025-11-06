@@ -1,18 +1,29 @@
-import { defineConfig, globalIgnores } from "eslint/config";
-import nextVitals from "eslint-config-next/core-web-vitals";
-import nextTs from "eslint-config-next/typescript";
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { FlatCompat } from '@eslint/eslintrc';
 
-const eslintConfig = defineConfig([
-  ...nextVitals,
-  ...nextTs,
-  // Override default ignores of eslint-config-next.
-  globalIgnores([
-    // Default ignores of eslint-config-next:
+const _filename = fileURLToPath(import.meta.url);
+const _dirname = dirname(_filename);
+
+const compat = new FlatCompat({
+  baseDirectory: _dirname,
+});
+
+const eslintConfig = {
+  ignores: [
     ".next/**",
     "out/**",
     "build/**",
     "next-env.d.ts",
-  ]),
-]);
+  ],
+  ...compat.config({
+    extends: ['next/core-web-vitals', 'next/typescript', 'prettier', 'plugin:tailwindcss/recommended'],
+    plugins: ['prettier', 'tailwindcss'],
+    rules: {
+      'prettier/prettier': 'error',
+      'react/no-unescaped-entities': 'off',
+    },
+  })
+};
 
 export default eslintConfig;
