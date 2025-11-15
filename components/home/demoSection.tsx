@@ -1,18 +1,9 @@
 import { ScrollText  } from 'lucide-react';
+import BgGradient from '../common/bg-gradient';
 
 export default function DemoSection() {
     return <section className="relative">
-        <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-30">
-        <div
-          style={{
-            clipPath:
-              'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)',
-          }}
-          className="relative left-[calc(50%-11rem)] aspect-1155/678 w-144.5 -translate-x-1/2 rotate-30 bg-linear-to-br from-emerald-500 via-teal-500 to-cyan-500 opacity-20 sm:left-[calc(50%-30rem)] sm:w-6xl "
-        />
-      </div>
+       <BgGradient className='bg-linear-to-br from-rose-800 via-rose-700 to-rose-500 '/>
       <div className="py-12 lg:py-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center space-y-4">
           <div className="inline-flex items-center justify-center p-2 rounded-2xl bg-gray-100/80 backdrop-blur-xs border border-gray-500/20 mb-4">
