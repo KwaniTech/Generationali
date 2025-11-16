@@ -21,7 +21,7 @@ export default function CTASection() {
                 <Button
                   size="lg"
                   variant={'link'}
-                  className="w-full min-[400px]:w-auto bg-linear-to-r from-slate-900 to-rose-500 hover:from-rose-500 hover:to-slate-900 hover:no-underline shadow-lg transition-all duration-300 hover:text-white text-white"
+                  className="w-full min-[400px]:w-auto bg-linear-to-r from-slate-900 to-rose-500 hover:from-rose-500 hover:to-slate-900  rounded-full hover:no-underline shadow-lg transition-all duration-300 hover:text-white text-white"
                 >
                   Launchpad <ArrowRight className="animate-pulse"/>
                 </Button>

@@ -1,17 +1,17 @@
 import { Sparkles } from "lucide-react";
-import { Badge } from "./ui/badge";
+import { Badge } from "@/components/ui/badge";
 
 export default function UploadHeader(){
     return (
         <div className="flex flex-col items-center justify-center gap-6 text-center">
 
           {/* Gradient badge */}
-          <div className="relative p-[1px] overflow-hidden rounded-full bg-linear-to-br from-rose-200 via-rose-500 to-rose-800 animate-gradient-x group">
+          <div className="relative p-[1px] overflow-hidden rounded-full bg-linear-to-br from-rose-800 via-rose-200 to-rose-500 animate-gradient-x group">
             <Badge
               variant="secondary"
-              className="relative flex items-center px-6 py-2 text-base font-medium bg-white rounded-full group-hover:bg-gray-50 transition-colors"
+              className="relative flex items-center px-6 py-2 text-base font-medium bg-white rounded-full group-hover:bg-rose-50 transition-colors"
             >
-              <Sparkles className="h-6 w-6 mr-2 text-rose-600 animate-pulse" />
+              <Sparkles className="h-6 w-6 mr-2 text-rose-700 animate-pulse" />
               <p className="text-base">AI-Powered Content Creation</p>
             </Badge>
           </div>
