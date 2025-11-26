@@ -12,6 +12,7 @@ import {
   SignUpButton,
   UserButton,
 } from "@clerk/nextjs";
+import Toast from '@/components/ui/toast';
 
 
 const fontSans = FontSans({
@@ -40,6 +41,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         </div>
+      <Toast/>
       </body>
     </html>
     </ClerkProvider>
