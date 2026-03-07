@@ -1,0 +1,10 @@
+{
+  "/(logged-in)/upload/page": "/upload",
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/api/uploadthing/route": "/api/uploadthing",
+  "/favicon.ico/route": "/favicon.ico",
+  "/page": "/",
+  "/sign-in/[[...sign-in]]/page": "/sign-in/[[...sign-in]]",
+  "/sign-up/[[...sign-up]]/page": "/sign-up/[[...sign-up]]"
+}
