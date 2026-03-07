@@ -1,0 +1,18 @@
+[00:00:02.961] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:03.372] Server  LOG      ✓ Ready in 2.7s
+[00:00:06.673] Server  LOG      ○ Compiling / ...
+[00:00:09.354] Server  LOG     
+
+[Clerk]: You are running in keyless mode.
+You can claim your keys by visiting https://dashboard.clerk.com/apps/claim?token=al5s83l9me41j6rk164fc1j9d7j5fj0v2cwrwj4o&return_url=http%3A%2F%2Flocalhost%3A3000%2F
+
+[00:00:09.950] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:10.932] Browser WARN    Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview
+[00:00:43.164] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:43.337] Browser WARN    Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview
+[00:00:59.263] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:59.406] Browser WARN    Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview
+[00:01:07.491] Server  LOG      ○ Compiling /api/uploadthing ...
+[00:02:20.564] Browser ERROR   error occurred while uploading: {"_tag":"UploadThingError","cause":{"message":"Missing token. Please set the `UPLOADTHING_TOKEN` environment variable or provide a token manually through config."},"code":"INTERNAL_SERVER_ERROR","message":"Missing token. Please set the `UPLOADTHING_TOKEN` environment variable or provide a token manually through config.","name":"UploadThingError"}
+[00:02:38.006] Browser ERROR   error occurred while uploading: {"_tag":"UploadThingError","cause":{"message":"Missing token. Please set the `UPLOADTHING_TOKEN` environment variable or provide a token manually through config."},"code":"INTERNAL_SERVER_ERROR","message":"Missing token. Please set the `UPLOADTHING_TOKEN` environment variable or provide a token manually through config.","name":"UploadThingError"}
+[00:02:48.031] Browser ERROR   error occurred while uploading: {"_tag":"UploadThingError","cause":{"message":"Missing token. Please set the `UPLOADTHING_TOKEN` environment variable or provide a token manually through config."},"code":"INTERNAL_SERVER_ERROR","message":"Missing token. Please set the `UPLOADTHING_TOKEN` environment variable or provide a token manually through config.","name":"UploadThingError"}
