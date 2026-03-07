@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Generationali
 
-## Getting Started
+AI-powered PDF analysis and summarization for lawyers; per-tenant isolation and microservice-oriented architecture.
 
-First, run the development server:
+## Repo structure (aligned with [ARCHITECTURE.md](./ARCHITECTURE.md))
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **`apps/web`** – Next.js UI (marketing, auth, upload, dashboard, chat). **This is the first build to run or rebuild**; all other pieces depend on or integrate with it.
+- **`services/`** – Backend service stubs (implementations to be added incrementally):
+  - **`gateway`** – API Gateway / BFF (single entrypoint for the frontend)
+  - **`auth`** – Auth & Tenant Service (Clerk → internal User/Tenant, tokens)
+  - **`document-ingestion`** – Document lifecycle and parse-job enqueue
+  - **`document-processing`** – PDF parsing and chunking → RAG
+  - **`rag`** – Vector Store & RAG Index (per-tenant embeddings and retrieval)
+  - **`ai`** – Conversation & Summarisation (orchestration, prompts, LLM)
+  - **`summaries-history`** – Summaries and conversation history storage
+  - **`billing`** – Billing & Usage (Stripe, quotas)
+  - **`audit`** – Audit & Observability (events, metrics, no sensitive content)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Each service folder has a short `README.md` linking to the architecture doc.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Getting started
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Install (from repo root):**
+   ```bash
+   npm install
+   ```
 
-## Learn More
+2. **Run the web app:**
+   ```bash
+   npm run dev
+   ```
+   Opens [http://localhost:3000](http://localhost:3000). For Clerk auth and UploadThing, set env vars (e.g. in `apps/web/.env.local`): `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`, `CLERK_SECRET_KEY`, and UploadThing keys as required.
 
-To learn more about Next.js, take a look at the following resources:
+3. **Build the web app (e.g. for production):**
+   ```bash
+   npm run build
+   ```
+   Requires the same env vars for prerender (Clerk).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Build order
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **First (or only) app to build:** `apps/web` (UI). Run `npm run build` from root or `npm run build` inside `apps/web`.
+- **Later:** Backend services in `services/*` will be implemented and built as separate deployables; the gateway will route frontend traffic to them. Until then, API routes in `apps/web` can continue to act as the monolith.
 
-## Deploy on Vercel
+## Learn more
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [ARCHITECTURE.md](./ARCHITECTURE.md) – Microservice boundaries, tenancy, migration phases.
+- [Next.js Documentation](https://nextjs.org/docs) – App Router, deployment.
