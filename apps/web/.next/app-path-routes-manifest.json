@@ -1,4 +1,6 @@
 {
+  "/(logged-in)/dashboard/page": "/dashboard",
+  "/(logged-in)/summaries/[id]/page": "/summaries/[id]",
   "/(logged-in)/upload/page": "/upload",
   "/_global-error/page": "/_global-error",
   "/_not-found/page": "/_not-found",

@@ -4,11 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "db:push": "prisma db push",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@prisma/client": "^6.0.0",
     "@clerk/nextjs": "^6.35.1",
     "@langchain/community": "^1.0.4",
     "@langchain/core": "^1.0.6",
@@ -30,6 +33,7 @@
     "zod": "^4.1.12"
   },
   "devDependencies": {
+    "prisma": "^6.0.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

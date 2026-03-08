@@ -1,18 +1,51 @@
-[00:00:02.961] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:03.372] Server  LOG      ✓ Ready in 2.7s
-[00:00:06.673] Server  LOG      ○ Compiling / ...
-[00:00:09.354] Server  LOG     
+[00:00:04.119] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:04.581] Server  LOG      ✓ Ready in 3.6s
+[00:00:17.219] Server  LOG      ○ Compiling / ...
+[00:00:24.977] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:25.320] Browser WARN    Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview
+[00:00:32.452] Server  ERROR    ⨯ PrismaClientInitializationError: 
+Invalid `{imported module ./apps/web/lib/db.ts}["prisma"].document.findMany()` invocation in
+C:\usr\KwaniTech\Generationali\apps\web\.next\dev\server\chunks\ssr\[root-of-the-server]__21fb857a._.js:186:164
 
-[Clerk]: You are running in keyless mode.
-You can claim your keys by visiting https://dashboard.clerk.com/apps/claim?token=al5s83l9me41j6rk164fc1j9d7j5fj0v2cwrwj4o&return_url=http%3A%2F%2Flocalhost%3A3000%2F
+  183     return rowToDocument(row);
+  184 }
+  185 async function listDocuments(tenantId) {
+→ 186     const rows = await {imported module ./apps/web/lib/db.ts}["prisma"].document.findMany(
+Error querying the database: Error code 14: Unable to open the database file
+[00:00:32.634] Browser ERROR   uncaughtError: PrismaClientInitializationError: 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$web$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].document.findMany()` invocation in
+C:\usr\KwaniTech\Generationali\apps\web\.next\dev\server\chunks\ssr\[root-of-the-server]__21fb857a._.js:186:164
 
-[00:00:09.950] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:10.932] Browser WARN    Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview
-[00:00:43.164] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:43.337] Browser WARN    Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview
-[00:00:59.263] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:59.406] Browser WARN    Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview
-[00:01:07.491] Server  LOG      ○ Compiling /api/uploadthing ...
-[00:02:20.564] Browser ERROR   error occurred while uploading: {"_tag":"UploadThingError","cause":{"message":"Missing token. Please set the `UPLOADTHING_TOKEN` environment variable or provide a token manually through config."},"code":"INTERNAL_SERVER_ERROR","message":"Missing token. Please set the `UPLOADTHING_TOKEN` environment variable or provide a token manually through config.","name":"UploadThingError"}
-[00:02:38.006] Browser ERROR   error occurred while uploading: {"_tag":"UploadThingError","cause":{"message":"Missing token. Please set the `UPLOADTHING_TOKEN` environment variable or provide a token manually through config."},"code":"INTERNAL_SERVER_ERROR","message":"Missing token. Please set the `UPLOADTHING_TOKEN` environment variable or provide a token manually through config.","name":"UploadThingError"}
-[00:02:48.031] Browser ERROR   error occurred while uploading: {"_tag":"UploadThingError","cause":{"message":"Missing token. Please set the `UPLOADTHING_TOKEN` environment variable or provide a token manually through config."},"code":"INTERNAL_SERVER_ERROR","message":"Missing token. Please set the `UPLOADTHING_TOKEN` environment variable or provide a token manually through config.","name":"UploadThingError"}
+  183     return rowToDocument(row);
+  184 }
+  185 async function listDocuments(tenantId) {
+→ 186     const rows = await __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$web$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].document.findMany(
+Error querying the database: Error code 14: Unable to open the database file
+[00:00:49.762] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:49.934] Browser WARN    Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview
+[00:00:54.536] Server  LOG      ○ Compiling /upload ...
+[00:00:58.958] Server  LOG      ○ Compiling /api/uploadthing ...
+[00:01:07.413] Server  LOG     [20:01:25.912] INFO (#16) handleUploadAction=618ms: Sending presigned URLs to client
+[00:01:07.414] Server  GROUP   
+[00:01:07.422] Server  LOG     presignedUrls: [{...}]
+[00:01:07.424] Server  GROUPEND 
+[00:01:07.582] Browser LOG     upload has begun for Work to-do.pdf
+[00:01:10.327] Server  WARN    ⚠️ [uploadthing][deprecated] `file.url` is deprecated and will be removed in uploadthing v9. Use `file.ufsUrl` instead.
+[00:01:14.425] Server  ERROR    ⨯ PrismaClientInitializationError: 
+Invalid `{imported module ./apps/web/lib/db.ts}["prisma"].document.findMany()` invocation in
+C:\usr\KwaniTech\Generationali\apps\web\.next\dev\server\chunks\ssr\[root-of-the-server]__21fb857a._.js:186:164
+
+  183     return rowToDocument(row);
+  184 }
+  185 async function listDocuments(tenantId) {
+→ 186     const rows = await {imported module ./apps/web/lib/db.ts}["prisma"].document.findMany(
+Error querying the database: Error code 14: Unable to open the database file
+[00:01:14.573] Browser ERROR   uncaughtError: PrismaClientInitializationError: 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$web$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].document.findMany()` invocation in
+C:\usr\KwaniTech\Generationali\apps\web\.next\dev\server\chunks\ssr\[root-of-the-server]__21fb857a._.js:186:164
+
+  183     return rowToDocument(row);
+  184 }
+  185 async function listDocuments(tenantId) {
+→ 186     const rows = await __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$web$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].document.findMany(
+Error querying the database: Error code 14: Unable to open the database file
