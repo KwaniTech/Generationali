@@ -1,0 +1,110 @@
+{
+  "node": {
+    "7f5bc56d2413897c0cb77c61a068d8c33b3538d503": {
+      "workers": {
+        "app/(logged-in)/dashboard/page": {
+          "moduleId": 794,
+          "async": false,
+          "exportedName": "detectKeylessEnvDriftAction",
+          "filename": "node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        }
+      },
+      "layer": {
+        "app/(logged-in)/dashboard/page": "rsc"
+      },
+      "exportedName": "detectKeylessEnvDriftAction",
+      "filename": "node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+    },
+    "7f9d60f6448908d9a0c8ae8b55fb5259c730dd723a": {
+      "workers": {
+        "app/(logged-in)/dashboard/page": {
+          "moduleId": 794,
+          "async": false,
+          "exportedName": "invalidateCacheAction",
+          "filename": "node_modules/@clerk/nextjs/dist/esm/app-router/server-actions.js"
+        }
+      },
+      "layer": {
+        "app/(logged-in)/dashboard/page": "action-browser"
+      },
+      "exportedName": "invalidateCacheAction",
+      "filename": "node_modules/@clerk/nextjs/dist/esm/app-router/server-actions.js"
+    },
+    "7f74a227874b4e66fe650a4489bf17d1ab261c44bf": {
+      "workers": {
+        "app/(logged-in)/dashboard/page": {
+          "moduleId": 794,
+          "async": false,
+          "exportedName": "createOrReadKeylessAction",
+          "filename": "node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        }
+      },
+      "layer": {
+        "app/(logged-in)/dashboard/page": "rsc"
+      },
+      "exportedName": "createOrReadKeylessAction",
+      "filename": "node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+    },
+    "7f126dace5558f6bc66c478425f07c8087bf3d6d1d": {
+      "workers": {
+        "app/(logged-in)/dashboard/page": {
+          "moduleId": 794,
+          "async": false,
+          "exportedName": "collectKeylessMetadata",
+          "filename": "node_modules/@clerk/nextjs/dist/esm/server/keyless-custom-headers.js"
+        }
+      },
+      "layer": {
+        "app/(logged-in)/dashboard/page": "rsc"
+      },
+      "exportedName": "collectKeylessMetadata",
+      "filename": "node_modules/@clerk/nextjs/dist/esm/server/keyless-custom-headers.js"
+    },
+    "7fc2550ef3f6b7544defba303532e44e7afbd4e524": {
+      "workers": {
+        "app/(logged-in)/dashboard/page": {
+          "moduleId": 794,
+          "async": false,
+          "exportedName": "formatMetadataHeaders",
+          "filename": "node_modules/@clerk/nextjs/dist/esm/server/keyless-custom-headers.js"
+        }
+      },
+      "layer": {
+        "app/(logged-in)/dashboard/page": "rsc"
+      },
+      "exportedName": "formatMetadataHeaders",
+      "filename": "node_modules/@clerk/nextjs/dist/esm/server/keyless-custom-headers.js"
+    },
+    "7fb3e7b990636364b56c238498709b4f615d7f58d4": {
+      "workers": {
+        "app/(logged-in)/dashboard/page": {
+          "moduleId": 794,
+          "async": false,
+          "exportedName": "deleteKeylessAction",
+          "filename": "node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        }
+      },
+      "layer": {
+        "app/(logged-in)/dashboard/page": "action-browser"
+      },
+      "exportedName": "deleteKeylessAction",
+      "filename": "node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+    },
+    "7fbb2a318b3773c41dc73f215c728294a591f925a5": {
+      "workers": {
+        "app/(logged-in)/dashboard/page": {
+          "moduleId": 794,
+          "async": false,
+          "exportedName": "syncKeylessConfigAction",
+          "filename": "node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+        }
+      },
+      "layer": {
+        "app/(logged-in)/dashboard/page": "action-browser"
+      },
+      "exportedName": "syncKeylessConfigAction",
+      "filename": "node_modules/@clerk/nextjs/dist/esm/app-router/keyless-actions.js"
+    }
+  },
+  "edge": {}
+}

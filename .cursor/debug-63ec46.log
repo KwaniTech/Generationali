@@ -1,0 +1,2 @@
+{"sessionId":"63ec46","location":"core.ts:onUploadComplete","message":"env check","data":{"hasClerkPublishable":true,"hasClerkSecret":true,"hasUploadThingToken":true},"timestamp":1772991594370,"hypothesisId":"H1"}
+{"sessionId":"63ec46","location":"core.ts:onUploadComplete","message":"env check","data":{"hasClerkPublishable":true,"hasClerkSecret":true,"hasUploadThingToken":true},"timestamp":1772991670130,"hypothesisId":"H1"}

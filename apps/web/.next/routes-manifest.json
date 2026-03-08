@@ -35,6 +35,14 @@
         "nxtPsignup": "nxtPsign-up"
       },
       "namedRegex": "^/sign\\-up(?:/(?<nxtPsignup>.+?))?(?:/)?$"
+    },
+    {
+      "page": "/summaries/[id]",
+      "regex": "^/summaries/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/summaries/(?<nxtPid>[^/]+?)(?:/)?$"
     }
   ],
   "staticRoutes": [
@@ -61,6 +69,12 @@
       "regex": "^/api/uploadthing(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/uploadthing(?:/)?$"
+    },
+    {
+      "page": "/dashboard",
+      "regex": "^/dashboard(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard(?:/)?$"
     },
     {
       "page": "/favicon.ico",
