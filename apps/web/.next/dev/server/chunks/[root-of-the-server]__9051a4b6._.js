@@ -221,7 +221,9 @@ async function updateDocumentStatus(tenantId, documentId, status) {
     "listSummaries",
     ()=>listSummaries,
     "listSummariesByDocument",
-    ()=>listSummariesByDocument
+    ()=>listSummariesByDocument,
+    "updateSummary",
+    ()=>updateSummary
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$web$2f$lib$2f$types$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/apps/web/lib/types.ts [app-route] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$web$2f$lib$2f$db$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/apps/web/lib/db.ts [app-route] (ecmascript)");
@@ -291,6 +293,19 @@ async function listSummariesByDocument(tenantId, documentId) {
     });
     return rows.map(rowToSummary);
 }
+async function updateSummary(tenantId, summaryId, payload) {
+    const row = await __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$web$2f$lib$2f$db$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].summary.update({
+        where: {
+            id: summaryId,
+            tenantId
+        },
+        data: {
+            ...payload,
+            createdAt: new Date()
+        }
+    });
+    return rowToSummary(row);
+}
 }),
 "[project]/apps/web/app/api/uploadthing/core.ts [app-route] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -324,28 +339,40 @@ const ourFileRouter = {
             userId: user.id
         };
     }).onUploadComplete(async ({ metadata, file })=>{
+        console.log('--- onUploadComplete (Fast Mode) Start ---');
+        console.log('File:', file.name, file.url);
         const userId = (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$web$2f$lib$2f$types$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["toUserId"])(metadata.userId);
         const tenantId = (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$web$2f$lib$2f$types$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["toTenantId"])(metadata.userId);
-        const doc = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$web$2f$lib$2f$services$2f$documents$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["createDocument"])(tenantId, {
-            userId,
-            storageUrl: file.url,
-            storageKey: file.key,
-            originalFilename: file.name,
-            mimeType: file.type ?? 'application/pdf',
-            sizeBytes: file.size
-        });
-        await (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$web$2f$lib$2f$services$2f$summaries$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["createSummary"])(tenantId, {
-            documentId: doc.id,
-            title: file.name,
-            shortSummary: 'Summary will be generated after processing.',
-            fullSummary: 'Full summary will appear here once the AI pipeline is connected.',
-            createdBy: userId
-        });
-        return {
-            userId: metadata.userId,
-            fileKey: file.key,
-            fileUrl: file.url
-        };
+        try {
+            // 1. Create document record (fast)
+            const doc = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$web$2f$lib$2f$services$2f$documents$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["createDocument"])(tenantId, {
+                userId,
+                storageUrl: file.url,
+                storageKey: file.key,
+                originalFilename: file.name,
+                mimeType: file.type ?? 'application/pdf',
+                sizeBytes: file.size
+            });
+            // 2. Save a placeholder summary (fast)
+            // This will be "auto-fixed" by the SummaryAutoFix component on the detail page
+            const summary = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$web$2f$lib$2f$services$2f$summaries$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["createSummary"])(tenantId, {
+                documentId: doc.id,
+                title: file.name.replace(/\.pdf$/i, ''),
+                shortSummary: 'Analyzing document...',
+                fullSummary: 'Full summary will appear here once the AI pipeline is connected.',
+                createdBy: userId
+            });
+            console.log('--- onUploadComplete Fast End ---');
+            return {
+                userId: metadata.userId,
+                fileKey: file.key,
+                fileUrl: file.url,
+                summaryId: summary.id
+            };
+        } catch (err) {
+            console.error('Critical error in onUploadComplete:', err);
+            throw err;
+        }
     })
 };
 }),

@@ -228,7 +228,9 @@ async function updateDocumentStatus(tenantId, documentId, status) {
     "listSummaries",
     ()=>listSummaries,
     "listSummariesByDocument",
-    ()=>listSummariesByDocument
+    ()=>listSummariesByDocument,
+    "updateSummary",
+    ()=>updateSummary
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$web$2f$lib$2f$types$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/apps/web/lib/types.ts [app-rsc] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$web$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/apps/web/lib/db.ts [app-rsc] (ecmascript)");
@@ -297,6 +299,19 @@ async function listSummariesByDocument(tenantId, documentId) {
         }
     });
     return rows.map(rowToSummary);
+}
+async function updateSummary(tenantId, summaryId, payload) {
+    const row = await __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$web$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].summary.update({
+        where: {
+            id: summaryId,
+            tenantId
+        },
+        data: {
+            ...payload,
+            createdAt: new Date()
+        }
+    });
+    return rowToSummary(row);
 }
 }),
 "[project]/apps/web/app/(logged-in)/dashboard/page.tsx [app-rsc] (ecmascript)", ((__turbopack_context__) => {

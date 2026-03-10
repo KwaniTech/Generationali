@@ -4,6 +4,7 @@ import Link from 'next/link';
 import BgGradient from '@/components/common/bg-gradient';
 import { getSummary } from '@/lib/services/summaries';
 import { toSummaryId, toTenantId } from '@/lib/types';
+import SummaryAutoFix from '@/components/summaries/SummaryAutoFix';
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -29,9 +30,15 @@ export default async function SummaryDetailPage({ params }: Props) {
           Back to dashboard
         </Link>
         <article className="space-y-6">
-          <h1 className="font-bold text-2xl lg:text-3xl text-gray-900">
-            {summary.title}
-          </h1>
+          <div className="flex flex-col gap-4">
+            <h1 className="font-bold text-2xl lg:text-3xl text-gray-900">
+              {summary.title}
+            </h1>
+            <SummaryAutoFix
+              summaryId={summary.id}
+              fullSummary={summary.fullSummary}
+            />
+          </div>
           <p className="text-sm text-gray-500">
             {new Date(summary.createdAt).toLocaleDateString()}
           </p>

@@ -163,9 +163,11 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$web$2f$components$2f$upload$2f$upload$2d$form$2d$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/apps/web/components/upload/upload-form-input.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$web$2f$utils$2f$uploadthing$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/apps/web/utils/uploadthing.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/sonner/dist/index.mjs [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zod$2f$v4$2f$classic$2f$external$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z$3e$__ = __turbopack_context__.i("[project]/node_modules/zod/v4/classic/external.js [app-ssr] (ecmascript) <export * as z>");
 'use client';
+;
 ;
 ;
 ;
@@ -177,9 +179,10 @@ const schema = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$z
     }).refine((file)=>file.size <= 20 * 1024 * 1024, "File size should be less than 20MB").refine((file)=>file.type.startsWith("application/pdf"), "File must be a PDF")
 });
 function UploadForm() {
+    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     const { startUpload, routeConfig } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$web$2f$utils$2f$uploadthing$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useUploadThing"])('pdfUploader', {
-        onClientUploadComplete: ()=>{
-            console.log("uploaded successfully!");
+        onClientUploadComplete: (res)=>{
+            console.log("uploaded successfully!", res);
         },
         onUploadError: (err)=>{
             console.error("error occurred while uploading:", err);
@@ -211,10 +214,9 @@ function UploadForm() {
             });
             return;
         }
-        (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["toast"])("Uploading PDF...", {
-            description: "Your file is being uploaded. This may take a moment✨"
+        (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["toast"])("Uploading & Summarizing PDF...", {
+            description: "Your file is being uploaded and summarized by AI. This may take a moment ✨"
         });
-        //upload file to uploadthing
         const response = await startUpload([
             file
         ]);
@@ -224,13 +226,19 @@ function UploadForm() {
             });
             return;
         }
-        (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["toast"])("Processing PDF...", {
-            description: "Your our AI is processing your file. This may take a moment✨"
-        });
-    //parse the pdf using langchain
-    //summarize pdf using ai
-    //save the summary to db 
-    //redirect to the [id] summary page
+        // Get the summaryId from the server response and redirect
+        const summaryId = response[0]?.serverData?.summaryId;
+        if (summaryId) {
+            (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["toast"])("Summary ready! ✨", {
+                description: "Redirecting to your AI-generated summary..."
+            });
+            router.push(`/summaries/${summaryId}`);
+        } else {
+            (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["toast"])("Upload complete!", {
+                description: "Check your dashboard for the summary."
+            });
+            router.push('/dashboard');
+        }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "flex flex-col gap-8 max-w-2xl mx-auto",
@@ -238,12 +246,12 @@ function UploadForm() {
             onSubmit: handleSubmit
         }, void 0, false, {
             fileName: "[project]/apps/web/components/upload/UploadForm.tsx",
-            lineNumber: 77,
-            columnNumber: 5
+            lineNumber: 85,
+            columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/apps/web/components/upload/UploadForm.tsx",
-        lineNumber: 76,
+        lineNumber: 84,
         columnNumber: 5
     }, this);
 }

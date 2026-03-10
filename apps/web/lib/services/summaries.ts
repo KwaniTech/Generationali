@@ -91,3 +91,18 @@ export async function listSummariesByDocument(
   });
   return rows.map(rowToSummary);
 }
+
+export async function updateSummary(
+  tenantId: TenantId,
+  summaryId: SummaryId,
+  payload: Partial<Pick<Summary, 'title' | 'shortSummary' | 'fullSummary'>>
+): Promise<Summary | undefined> {
+  const row = await prisma.summary.update({
+    where: { id: summaryId, tenantId },
+    data: {
+      ...payload,
+      createdAt: new Date(), // Update timestamp when AI completes
+    },
+  });
+  return rowToSummary(row);
+}

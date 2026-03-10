@@ -1,51 +1,38 @@
-[00:00:04.119] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:04.581] Server  LOG      ✓ Ready in 3.6s
-[00:00:17.219] Server  LOG      ○ Compiling / ...
-[00:00:24.977] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:25.320] Browser WARN    Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview
-[00:00:32.452] Server  ERROR    ⨯ PrismaClientInitializationError: 
-Invalid `{imported module ./apps/web/lib/db.ts}["prisma"].document.findMany()` invocation in
-C:\usr\KwaniTech\Generationali\apps\web\.next\dev\server\chunks\ssr\[root-of-the-server]__21fb857a._.js:186:164
-
-  183     return rowToDocument(row);
-  184 }
-  185 async function listDocuments(tenantId) {
-→ 186     const rows = await {imported module ./apps/web/lib/db.ts}["prisma"].document.findMany(
-Error querying the database: Error code 14: Unable to open the database file
-[00:00:32.634] Browser ERROR   uncaughtError: PrismaClientInitializationError: 
-Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$web$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].document.findMany()` invocation in
-C:\usr\KwaniTech\Generationali\apps\web\.next\dev\server\chunks\ssr\[root-of-the-server]__21fb857a._.js:186:164
-
-  183     return rowToDocument(row);
-  184 }
-  185 async function listDocuments(tenantId) {
-→ 186     const rows = await __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$web$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].document.findMany(
-Error querying the database: Error code 14: Unable to open the database file
-[00:00:49.762] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:49.934] Browser WARN    Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview
-[00:00:54.536] Server  LOG      ○ Compiling /upload ...
-[00:00:58.958] Server  LOG      ○ Compiling /api/uploadthing ...
-[00:01:07.413] Server  LOG     [20:01:25.912] INFO (#16) handleUploadAction=618ms: Sending presigned URLs to client
-[00:01:07.414] Server  GROUP   
-[00:01:07.422] Server  LOG     presignedUrls: [{...}]
-[00:01:07.424] Server  GROUPEND 
-[00:01:07.582] Browser LOG     upload has begun for Work to-do.pdf
-[00:01:10.327] Server  WARN    ⚠️ [uploadthing][deprecated] `file.url` is deprecated and will be removed in uploadthing v9. Use `file.ufsUrl` instead.
-[00:01:14.425] Server  ERROR    ⨯ PrismaClientInitializationError: 
-Invalid `{imported module ./apps/web/lib/db.ts}["prisma"].document.findMany()` invocation in
-C:\usr\KwaniTech\Generationali\apps\web\.next\dev\server\chunks\ssr\[root-of-the-server]__21fb857a._.js:186:164
-
-  183     return rowToDocument(row);
-  184 }
-  185 async function listDocuments(tenantId) {
-→ 186     const rows = await {imported module ./apps/web/lib/db.ts}["prisma"].document.findMany(
-Error querying the database: Error code 14: Unable to open the database file
-[00:01:14.573] Browser ERROR   uncaughtError: PrismaClientInitializationError: 
-Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$web$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].document.findMany()` invocation in
-C:\usr\KwaniTech\Generationali\apps\web\.next\dev\server\chunks\ssr\[root-of-the-server]__21fb857a._.js:186:164
-
-  183     return rowToDocument(row);
-  184 }
-  185 async function listDocuments(tenantId) {
-→ 186     const rows = await __TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$web$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].document.findMany(
-Error querying the database: Error code 14: Unable to open the database file
+[00:00:02.894] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:03.214] Server  LOG      ✓ Ready in 2.6s
+[00:00:15.816] Server  LOG      ○ Compiling / ...
+[00:00:21.351] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:21.885] Browser WARN    Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview
+[00:00:32.118] Server  LOG      ○ Compiling /upload ...
+[00:00:36.382] Server  LOG      ○ Compiling /api/uploadthing ...
+[00:00:40.144] Server  WARN    prisma:warn In production, we recommend using `prisma generate --no-engine` (See: `prisma generate --help`)
+[00:00:43.671] Server  LOG     [10:25:50.149] INFO (#19) handleUploadAction=750ms: Sending presigned URLs to client
+[00:00:43.674] Server  GROUP   
+[00:00:43.684] Server  LOG     presignedUrls: [{...}]
+[00:00:43.686] Server  GROUPEND 
+[00:00:43.839] Browser LOG     upload has begun for Work to-do.pdf
+[00:00:46.363] Server  LOG     --- onUploadComplete (Fast Mode) Start ---
+[00:00:46.365] Server  WARN    ⚠️ [uploadthing][deprecated] `file.url` is deprecated and will be removed in uploadthing v9. Use `file.ufsUrl` instead.
+[00:00:46.367] Server  LOG     File: "Work to-do.pdf" "https://utfs.io/f/CBlhSdH320P4Jh8n54fPgUXM4LRbfrVZI0q8w3ua9F5WClBn"
+[00:00:46.368] Server  WARN    ⚠️ [uploadthing][deprecated] `file.url` is deprecated and will be removed in uploadthing v9. Use `file.ufsUrl` instead.
+[00:00:47.795] Server  LOG     --- onUploadComplete Fast End ---
+[00:00:47.797] Server  WARN    ⚠️ [uploadthing][deprecated] `file.url` is deprecated and will be removed in uploadthing v9. Use `file.ufsUrl` instead.
+[00:00:48.205] Server  LOG     [10:25:54.686] INFO (#29) handleCallbackRequest=1865ms: Sent callback result to UploadThing
+[00:00:48.205] Server  GROUP   
+[00:00:48.206] Server  GROUPEND 
+[00:00:48.303] Browser WARN    ⚠️ [uploadthing][deprecated] `file.appUrl` is deprecated and will be removed in uploadthing v9. Use `file.ufsUrl` instead.
+[00:00:48.303] Browser WARN    ⚠️ [uploadthing][deprecated] `file.url` is deprecated and will be removed in uploadthing v9. Use `file.ufsUrl` instead.
+[00:00:48.303] Browser LOG     uploaded successfully! [{"appUrl":"https://utfs.io/a/u4mhmqcni8/CBlhSdH320P4Jh8n54fPgUXM4LRbfrVZI0q8w3ua9F5WClBn","customId":null,"fileHash":"cd9e2521732d310b0aa7e0ed22ec2a92","key":"CBlhSdH320P4Jh8n54fPgUXM4LRbfrVZI0q8w3ua9F5WClBn","lastModified":1769077525363,"name":"Work to-do.pdf","serverData":{"fileKey":"CBlhSdH320P4Jh8n54fPgUXM4LRbfrVZI0q8w3ua9F5WClBn","fileUrl":"https://utfs.io/f/CBlhSdH320P4Jh8n54fPgUXM4LRbfrVZI0q8w3ua9F5WClBn","summaryId":"sum_1773131153878_1","userId":"user_363Ld31OotRb77hb0kKBWP2ExSy"},"size":13952,"type":"application/pdf","ufsUrl":"https://u4mhmqcni8.ufs.sh/f/CBlhSdH320P4Jh8n54fPgUXM4LRbfrVZI0q8w3ua9F5WClBn","url":"https://utfs.io/f/CBlhSdH320P4Jh8n54fPgUXM4LRbfrVZI0q8w3ua9F5WClBn"}]
+[00:00:51.266] Server  LOG      ○ Compiling /summaries/[id] ...
+[00:00:56.579] Server  WARN    Warning: Cannot load "@napi-rs/canvas" package: "Error: Cannot find module '@napi-rs/canvas'
+Require stack:
+- C:\ROOT\node_modules\pdf-parse\dist\pdf-parse\cjs\index.cjs".
+[00:00:56.580] Server  WARN    Warning: Cannot polyfill `ImageData`, rendering may be broken.
+[00:00:56.582] Server  WARN    Warning: Cannot polyfill `Path2D`, rendering may be broken.
+[00:00:58.658] Server  LOG     summarizePdf start for: "Work to-do.pdf"
+[00:00:58.660] Server  LOG     Downloading PDF from: "https://utfs.io/f/CBlhSdH320P4Jh8n54fPgUXM4LRbfrVZI0q8w3ua9F5WClBn"
+[00:00:59.888] Server  LOG     PDF downloaded, size: 13952 "bytes"
+[00:00:59.890] Server  LOG     Extracting text with pdf-parse...
+[00:01:00.877] Server  ERROR   Re-summarization action failed: TypeError: pdfParse is not a function
+[00:01:02.805] Server  ERROR    ⨯ TypeError: pdfParse is not a function
+[00:01:02.926] Browser ERROR   Auto-summarization failed: {"digest":"2237010422","environmentName":"Server","name":"TypeError"}
